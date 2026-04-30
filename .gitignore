@@ -4,6 +4,7 @@
 *.swp
 *.txt
 *.upload
+*.pyc
 *~
 .tags
 /*-[0-9][0-9].xml
@@ -20,3 +21,6 @@ archive.json
 package-lock.json
 report.xml
 !requirements.txt
+lib
+.gitignore
+.github/*
