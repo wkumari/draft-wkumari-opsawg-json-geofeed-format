@@ -9,19 +9,19 @@ number:
 date:
 consensus: true
 v: 3
-area: AREA
-workgroup: WG Working Group
+area: "Operations and Management"
+workgroup: "Operations and Management Area Working Group"
 keyword:
  - next generation
  - unicorn
  - sparkling distributed ledger
 venue:
-  group: WG
-  type: Working Group
-  mail: WG@example.com
-  arch: https://example.com/WG
-  github: USER/REPO
-  latest: https://example.com/LATEST
+  group: "Operations and Management Area Working Group"
+  type: "Working Group"
+  mail: "opsawg@ietf.org"
+  arch: "https://mailarchive.ietf.org/arch/browse/opsawg/"
+  github: "wkumari/draft-wkumari-opsawg-json-geofeed-format"
+  latest: "https://wkumari.github.io/draft-wkumari-opsawg-json-geofeed-format/draft-wkumari-opsawg-json-geofeed-format.html"
 
 author:
  -
