@@ -9,16 +9,14 @@
 /*-[0-9][0-9].xml
 /.*.mk
 /.gems/
-/.idea/
 /.refcache
 /.venv/
 /.vscode/
-/lib
+/.idea/
 /node_modules/
 /versioned/
 Gemfile.lock
 archive.json
-draft-wkumari-opsawg-json-geofeed-format.xml
 package-lock.json
 report.xml
 !requirements.txt
