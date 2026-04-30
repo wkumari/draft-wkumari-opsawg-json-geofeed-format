@@ -2,14 +2,14 @@
 
 
 
-WG Working Group                                              Y. N. Here
+Operations and Management Area Working Group                   W. Kumari
 Internet-Draft                                    Your Organization Here
 Intended status: Informational                             30 April 2026
 Expires: 1 November 2026
 
 
                            TODO - Your title
-                  draft-todo-yourname-protocol-latest
+            draft-wkumari-opsawg-json-geofeed-format-latest
 
 Abstract
 
@@ -20,16 +20,19 @@ About This Document
    This note is to be removed before publishing as an RFC.
 
    The latest revision of this draft can be found at
-   https://example.com/LATEST.  Status information for this document may
-   be found at https://datatracker.ietf.org/doc/draft-todo-yourname-
-   protocol/.
+   https://wkumari.github.io/draft-wkumari-opsawg-json-geofeed-format/
+   draft-wkumari-opsawg-json-geofeed-format.html.  Status information
+   for this document may be found at https://datatracker.ietf.org/doc/
+   draft-wkumari-opsawg-json-geofeed-format/.
 
-   Discussion of this document takes place on the WG Working Group
-   mailing list (mailto:WG@example.com), which is archived at
-   https://example.com/WG.
+   Discussion of this document takes place on the Operations and
+   Management Area Working Group Working Group mailing list
+   (mailto:opsawg@ietf.org), which is archived at
+   https://mailarchive.ietf.org/arch/browse/opsawg/.  Subscribe at
+   https://www.ietf.org/mailman/listinfo/opsawg/.
 
    Source for this draft and an issue tracker can be found at
-   https://github.com/USER/REPO.
+   https://github.com/wkumari/draft-wkumari-opsawg-json-geofeed-format.
 
 Status of This Memo
 
@@ -109,6 +112,6 @@ Acknowledgments
 
 Author's Address
 
-   Your Name Here
+   Warren Kumari
    Your Organization Here
-   Email: your.email@example.com
+   Email: warren@kumari.net
