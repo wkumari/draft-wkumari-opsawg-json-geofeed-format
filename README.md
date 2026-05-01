@@ -1,8 +1,8 @@
 <!-- regenerate: on (set to off if you edit this file) -->
 
-# TODO - Your title
+# A JSON Format for Self-Published IP Geolocation Feeds
 
-This is the working area for the individual Internet-Draft, "TODO - Your title".
+This is the working area for the individual Internet-Draft, "A JSON Format for Self-Published IP Geolocation Feeds".
 
 * [Editor's Copy](https://wkumari.github.io/draft-wkumari-opsawg-json-geofeed-format/#go.draft-wkumari-opsawg-json-geofeed-format.html)
 * [Datatracker Page](https://datatracker.ietf.org/doc/draft-wkumari-opsawg-json-geofeed-format)
