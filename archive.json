@@ -1,0 +1,103 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2026-05-03T01:07:38.223299+00:00",
+  "repo": "wkumari/draft-wkumari-opsawg-json-geofeed-format",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [
+    {
+      "number": 1,
+      "id": "I_kwDOSQ6MKs8AAAABBC8JRw",
+      "title": "Determine best venue to discuss this document and the fields.",
+      "url": "https://github.com/wkumari/draft-wkumari-opsawg-json-geofeed-format/issues/1",
+      "state": "OPEN",
+      "author": "wkumari",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Initially I think it is OpsAWG, but perhaps it will need a more dedicated venue to discuss the different\n fields.",
+      "createdAt": "2026-05-01T15:25:58Z",
+      "updatedAt": "2026-05-01T15:25:58Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 2,
+      "id": "I_kwDOSQ6MKs8AAAABBC8jrw",
+      "title": "Determine an extension mechanism",
+      "url": "https://github.com/wkumari/draft-wkumari-opsawg-json-geofeed-format/issues/2",
+      "state": "OPEN",
+      "author": "wkumari",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "- [ ] Registry?\n- [ ] Private extensions -- X-&lt;foo&gt; - Wheee!",
+      "createdAt": "2026-05-01T15:27:26Z",
+      "updatedAt": "2026-05-01T15:27:26Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 3,
+      "id": "I_kwDOSQ6MKs8AAAABBC8q3Q",
+      "title": "Define what fields are mandatory\u00a0vs optional",
+      "url": "https://github.com/wkumari/draft-wkumari-opsawg-json-geofeed-format/issues/3",
+      "state": "OPEN",
+      "author": "wkumari",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-05-01T15:27:51Z",
+      "updatedAt": "2026-05-01T15:27:51Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
+  "pulls": []
+}
