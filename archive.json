@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-05-05T00:59:38.671961+00:00",
+  "timestamp": "2026-05-07T01:04:11.349515+00:00",
   "repo": "wkumari/draft-wkumari-opsawg-json-geofeed-format",
   "labels": [
     {
@@ -99,5 +99,32 @@
       "comments": []
     }
   ],
-  "pulls": []
+  "pulls": [
+    {
+      "number": 4,
+      "id": "PR_kwDOSQ6MKs7YePMo",
+      "title": "Proposing addition of a Metadata section.",
+      "url": "https://github.com/wkumari/draft-wkumari-opsawg-json-geofeed-format/pull/4",
+      "state": "OPEN",
+      "author": "ttauber",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Added Metadata section to be REQUIRED.\r\nWill add an example Metadata section soon as well.",
+      "createdAt": "2026-05-05T16:32:18Z",
+      "updatedAt": "2026-05-05T16:32:19Z",
+      "baseRepository": "wkumari/draft-wkumari-opsawg-json-geofeed-format",
+      "baseRefName": "main",
+      "baseRefOid": "e59af3352e2c12215befd82c7eb26d666bdfe969",
+      "headRepository": "ttauber/draft-wkumari-opsawg-json-geofeed-format",
+      "headRefName": "patch-1",
+      "headRefOid": "513bd578abe58c9795eafdd05e37dced9256cb98",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    }
+  ]
 }
