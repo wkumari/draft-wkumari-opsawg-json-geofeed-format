@@ -26,8 +26,8 @@
     platformdirs 4.9.6
     pycountry 24.6.1
     PyYAML 6.0.3
-    requests 2.32.5
-    wcwidth 0.6.0
+    requests 2.33.1
+    wcwidth 0.7.0
 -->
 <link href="draft-wkumari-opsawg-json-geofeed-format.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -1048,11 +1048,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">JSON Geofeed Format</td>
-<td class="right">April 2026</td>
+<td class="right">May 2026</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Kumari</td>
-<td class="center">Expires 1 November 2026</td>
+<td class="center">Expires 13 November 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1068,12 +1068,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="https://www.rfc-editor.org/rfc/rfcRFC8805" class="eref">RFC8805</a> (if approved)</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-04-30" class="published">30 April 2026</time>
+<time datetime="2026-05-12" class="published">12 May 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-11-01">1 November 2026</time></dd>
+<dd class="expires"><time datetime="2026-11-13">13 November 2026</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -1123,7 +1123,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 1 November 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 13 November 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1159,7 +1159,15 @@ svg :is([fill="white"], [fill^="#fff"]) {
             <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-conventions-and-definitions" class="internal xref">Conventions and Definitions</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1" class="keepWithNext"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-json-geofeed-format" class="internal xref">JSON Geofeed Format</a></p>
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-json-geofeed-format" class="internal xref">JSON Geofeed Format</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
+                <p id="section-toc.1-1.3.2.1.1" class="keepWithNext"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-metadata-section" class="internal xref">Metadata section</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
+                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-body-section" class="internal xref">Body section</a></p>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
             <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
@@ -1254,48 +1262,82 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
       <h2 id="name-json-geofeed-format">
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-json-geofeed-format" class="section-name selfRef">JSON Geofeed Format</a>
       </h2>
-<p id="section-3-1">The JSON format for geolocation feeds builds upon the fields
-specified in RFC 8805: IP prefix, alpha2code, region, city.<a href="#section-3-1" class="pilcrow">¶</a></p>
-<p id="section-3-2">Note that, as <span>[<a href="#RFC8805" class="cite xref">RFC8805</a>]</span> deprecated the use of the postal code field (<span>[<a href="#RFC8805" class="cite xref">RFC8805</a>]</span>, Section 2.1.1.5 - "Postal Code"), the JSON
-format does not support it.<a href="#section-3-2" class="pilcrow">¶</a></p>
-<p id="section-3-3">A JSON geofeed <span class="bcp14">MUST</span> be an array of JSON objects.<a href="#section-3-3" class="pilcrow">¶</a></p>
-<p id="section-3-4">Each object <span class="bcp14">MUST</span> contain the following keys:<a href="#section-3-4" class="pilcrow">¶</a></p>
+<div id="metadata-section">
+<section id="section-3.1">
+        <h3 id="name-metadata-section">
+<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-metadata-section" class="section-name selfRef">Metadata section</a>
+        </h3>
+<p id="section-3.1-1">A compliant geofeed <span class="bcp14">MUST</span> include a new section comprised of a JSON object including certain fields which improve the operational usefulness of the information within.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.1-2"><span class="bcp14">REQUIRED</span> fields in this section include:<a href="#section-3.1-2" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-3-5.1">
-          <p id="section-3-5.1.1"><strong>ip_prefix</strong>: same semantics as defined in <span>[<a href="#RFC8805" class="cite xref">RFC8805</a>]</span><a href="#section-3-5.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.1-3.1">
+            <p id="section-3.1-3.1.1"><strong>last_updated</strong>: The time and date the feed was last generated, formatted as an ISO 8601 date-time.<a href="#section-3.1-3.1.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-3-5.2">
-          <p id="section-3-5.2.1"><strong>alpha2code</strong>: same semantics as defined in <span>[<a href="#RFC8805" class="cite xref">RFC8805</a>]</span><a href="#section-3-5.2.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-3.1-3.2">
+            <p id="section-3.1-3.2.1"><strong>contact</strong>: An email addresss or URL (e.g., for a web form) for outreach about the geofeed for operational or other issues.<a href="#section-3.1-3.2.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-3-5.3">
-          <p id="section-3-5.3.1"><strong>region</strong>: same semantics as defined in <span>[<a href="#RFC8805" class="cite xref">RFC8805</a>]</span><a href="#section-3-5.3.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-3.1-3.3">
+            <p id="section-3.1-3.3.1"><strong>update_frequency</strong>: The time, expressed either in a number of seconds or as an ISO 8601 duration. E.g., 86400 (seconds) or P1D (ISO 8601) each represent a daily interval.<a href="#section-3.1-3.3.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-3-5.4">
-          <p id="section-3-5.4.1"><strong>city</strong>: same semantics as defined in <span>[<a href="#RFC8805" class="cite xref">RFC8805</a>]</span><a href="#section-3-5.4.1" class="pilcrow">¶</a></p>
-</li>
-      </ul>
-<p id="section-3-6">In addition, each object <span class="bcp14">MUST</span> contain:<a href="#section-3-6" class="pilcrow">¶</a></p>
+        </ul>
+<p id="section-3.1-4"><span class="bcp14">OPTIONAL</span> fields in this section include:<a href="#section-3.1-4" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-3-7.1">
-          <p id="section-3-7.1.1"><strong>last_updated</strong>: A string indicating the timestamp of the last update to that record, formatted as an ISO 8601 date-time. This field is critical for consumers to assess the freshness of the data, given the dynamic nature of IP address allocations and network changes.<a href="#section-3-7.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.1-5.1">
+            <p id="section-3.1-5.1.1"><strong>source</strong>: The type of entity generating the geofeed information. Values include <code>ISP</code>, <code>CDN</code>, <code>geo_provider</code>, <code>registry</code>.<a href="#section-3.1-5.1.1" class="pilcrow">¶</a></p>
 </li>
-      </ul>
-<p id="section-3-8">Objects <span class="bcp14">MAY</span> contain the following optional keys:<a href="#section-3-8" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-3.1-5.2">
+            <p id="section-3.1-5.2.1"><strong>applicability_statement</strong>: A text field describing how the data is intended to be used.<a href="#section-3.1-5.2.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+</section>
+</div>
+<div id="body-section">
+<section id="section-3.2">
+        <h3 id="name-body-section">
+<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-body-section" class="section-name selfRef">Body section</a>
+        </h3>
+<p id="section-3.2-1">The JSON format for geolocation feeds builds upon the fields
+specified in RFC 8805: IP prefix, alpha2code, region, city.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2-2">Note that, as <span>[<a href="#RFC8805" class="cite xref">RFC8805</a>]</span> deprecated the use of the postal code field (<span>[<a href="#RFC8805" class="cite xref">RFC8805</a>]</span>, Section 2.1.1.5 - "Postal Code"), the JSON
+format does not support it.<a href="#section-3.2-2" class="pilcrow">¶</a></p>
+<p id="section-3.2-3">A JSON geofeed <span class="bcp14">MUST</span> be an array of JSON objects.<a href="#section-3.2-3" class="pilcrow">¶</a></p>
+<p id="section-3.2-4">Each object <span class="bcp14">MUST</span> contain the following keys:<a href="#section-3.2-4" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-3-9.1">
-          <p id="section-3-9.1.1"><strong>location_type</strong> (optional): A string indicating the nature of the location.<a href="#section-3-9.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.2-5.1">
+            <p id="section-3.2-5.1.1"><strong>ip_prefix</strong>: same semantics as defined in <span>[<a href="#RFC8805" class="cite xref">RFC8805</a>]</span><a href="#section-3.2-5.1.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-3-9.2">
-          <p id="section-3-9.2.1">Valid
-  values include <code>infrastructure</code>, <code>network_egress</code>, <code>organization</code> and <code>jurisdiction</code>.<a href="#section-3-9.2.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-3.2-5.2">
+            <p id="section-3.2-5.2.1"><strong>alpha2code</strong>: same semantics as defined in <span>[<a href="#RFC8805" class="cite xref">RFC8805</a>]</span><a href="#section-3.2-5.2.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-3-9.3">
-          <p id="section-3-9.3.1"><strong>confidence</strong> (optional): A string expressing the certainty level of
-the mapping (<span>[<a href="#IAB-IP-GEO" class="cite xref">IAB-IP-GEO</a>]</span>, Section 5.2). Valid values include <code>high</code>, <code>medium</code>, and <code>low</code>.<a href="#section-3-9.3.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-3.2-5.3">
+            <p id="section-3.2-5.3.1"><strong>region</strong>: same semantics as defined in <span>[<a href="#RFC8805" class="cite xref">RFC8805</a>]</span><a href="#section-3.2-5.3.1" class="pilcrow">¶</a></p>
 </li>
-      </ul>
-<p id="section-3-10">Example JSON Geofeed Entry:<a href="#section-3-10" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-3-11">
+          <li class="normal" id="section-3.2-5.4">
+            <p id="section-3.2-5.4.1"><strong>city</strong>: same semantics as defined in <span>[<a href="#RFC8805" class="cite xref">RFC8805</a>]</span><a href="#section-3.2-5.4.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-3.2-6">In addition, each object <span class="bcp14">MUST</span> contain:<a href="#section-3.2-6" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.2-7.1">
+            <p id="section-3.2-7.1.1"><strong>last_updated</strong>: A string indicating the timestamp of the last update to that record, formatted as an ISO 8601 date-time. This field is critical for consumers to assess the freshness of the data, given the dynamic nature of IP address allocations and network changes.<a href="#section-3.2-7.1.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-3.2-8">Objects <span class="bcp14">MAY</span> contain the following optional keys:<a href="#section-3.2-8" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.2-9.1">
+            <p id="section-3.2-9.1.1"><strong>location_type</strong> (optional): A string indicating the nature of the location.<a href="#section-3.2-9.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.2-9.2">
+            <p id="section-3.2-9.2.1">Valid
+  values include <code>infrastructure</code>, <code>network_egress</code>, <code>organization</code> and <code>jurisdiction</code>.<a href="#section-3.2-9.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.2-9.3">
+            <p id="section-3.2-9.3.1"><strong>confidence</strong> (optional): A string expressing the certainty level of
+the mapping (<span>[<a href="#IAB-IP-GEO" class="cite xref">IAB-IP-GEO</a>]</span>, Section 5.2). Valid values include <code>high</code>, <code>medium</code>, and <code>low</code>.<a href="#section-3.2-9.3.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-3.2-10">Example JSON Geofeed Entry:<a href="#section-3.2-10" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-3.2-11">
 <pre>
 [
   {
@@ -1318,28 +1360,30 @@ the mapping (<span>[<a href="#IAB-IP-GEO" class="cite xref">IAB-IP-GEO</a>]</spa
   }
 ]
 
-</pre><a href="#section-3-11" class="pilcrow">¶</a>
+</pre><a href="#section-3.2-11" class="pilcrow">¶</a>
 </div>
-<p id="section-3-12">The <code>location_type</code> field allows publishers to clarify the context of the
+<p id="section-3.2-12">The <code>location_type</code> field allows publishers to clarify the context of the
 geolocation mapping, while the <code>confidence</code> field provides a mechanism to
 express the reliability of the data. The <code>last_updated</code> field helps consumers
 assess the freshness of the information, which is crucial given the dynamic
-nature of IP address allocations and network changes.<a href="#section-3-12" class="pilcrow">¶</a></p>
-<p id="section-3-13">{<strong>Editor note</strong>: Multiple people have suggested new fields
+nature of IP address allocations and network changes.<a href="#section-3.2-12" class="pilcrow">¶</a></p>
+<p id="section-3.2-13">{<strong>Editor note</strong>: Multiple people have suggested new fields
 that should be added to the format, but we need to be careful about scope
 creep. These are only some of the proposed fields, but any others such as
 <code>source</code>, <code>accuracy_radius</code> and <code>access_technology</code> have also been discussed.
 For example, <code>access_technology</code> would be used to indicate the type of network
 access, such as <code>wifi</code>, <code>cellular</code>, or <code>ethernet</code>, and / or <code>speed</code>, <code>jitter</code>,
-etc.<a href="#section-3-13" class="pilcrow">¶</a></p>
-<p id="section-3-14">I have intentionally kept the initial list the same as RFC8805, but added
+etc.<a href="#section-3.2-13" class="pilcrow">¶</a></p>
+<p id="section-3.2-14">I have intentionally kept the initial list the same as RFC8805, but added
 <code>last_updated</code> as it was obviously needed, and  <code>location_type</code> and
-<code>confidence</code> as examples.<a href="#section-3-14" class="pilcrow">¶</a></p>
-<p id="section-3-15">There will need to be careful discussion of other potential fields before they
+<code>confidence</code> as examples.<a href="#section-3.2-14" class="pilcrow">¶</a></p>
+<p id="section-3.2-15">There will need to be careful discussion of other potential fields before they
 are added to the format, and it is possible that there will need to be a
 dedicated venue for such discussions. In addition, we might consider creating a
 registry for these fields to ensure consistency and interoperability, and a
-mechanism to provide "private" extensions.}<a href="#section-3-15" class="pilcrow">¶</a></p>
+mechanism to provide "private" extensions.}<a href="#section-3.2-15" class="pilcrow">¶</a></p>
+</section>
+</div>
 </section>
 </div>
 <div id="security-considerations">

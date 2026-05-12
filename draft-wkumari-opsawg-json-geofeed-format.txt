@@ -4,9 +4,9 @@
 
 Operations and Management Area Working Group                   W. Kumari
 Internet-Draft                                                Google LLC
-Updates: RFC8805 (if approved)                             30 April 2026
+Updates: RFC8805 (if approved)                               12 May 2026
 Intended status: Informational                                          
-Expires: 1 November 2026
+Expires: 13 November 2026
 
 
          A JSON Format for Self-Published IP Geolocation Feeds
@@ -54,7 +54,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 1 November 2026.
+   This Internet-Draft will expire on 13 November 2026.
 
 Copyright Notice
 
@@ -75,6 +75,8 @@ Table of Contents
    1.  Introduction
    2.  Conventions and Definitions
    3.  JSON Geofeed Format
+     3.1.  Metadata section
+     3.2.  Body section
    4.  Security Considerations
    5.  IANA Considerations
    6.  References
@@ -143,6 +145,34 @@ Table of Contents
    capitals, as shown here.
 
 3.  JSON Geofeed Format
+
+3.1.  Metadata section
+
+   A compliant geofeed MUST include a new section comprised of a JSON
+   object including certain fields which improve the operational
+   usefulness of the information within.
+
+   REQUIRED fields in this section include:
+
+   *  *last_updated*: The time and date the feed was last generated,
+      formatted as an ISO 8601 date-time.
+
+   *  *contact*: An email addresss or URL (e.g., for a web form) for
+      outreach about the geofeed for operational or other issues.
+
+   *  *update_frequency*: The time, expressed either in a number of
+      seconds or as an ISO 8601 duration.  E.g., 86400 (seconds) or P1D
+      (ISO 8601) each represent a daily interval.
+
+   OPTIONAL fields in this section include:
+
+   *  *source*: The type of entity generating the geofeed information.
+      Values include ISP, CDN, geo_provider, registry.
+
+   *  *applicability_statement*: A text field describing how the data is
+      intended to be used.
+
+3.2.  Body section
 
    The JSON format for geolocation feeds builds upon the fields
    specified in RFC 8805: IP prefix, alpha2code, region, city.
