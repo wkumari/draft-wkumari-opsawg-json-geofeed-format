@@ -113,6 +113,22 @@ new fields to address some of the gaps identified in {{IAB-IP-GEO}}.
 
 # JSON Geofeed Format
 
+## Metadata section
+
+A compliant geofeed MUST include a new section comprised of a JSON object including certain fields which improve the operational usefulness of the information within.
+
+REQUIRED fields in this section include:
+
+* **last_updated**: The time and date the feed was last generated, formatted as an ISO 8601 date-time.
+* **contact**: An email addresss or URL (e.g., for a web form) for outreach about the geofeed for operational or other issues.
+* **update_frequency**: The time, expressed either in a number of seconds or as an ISO 8601 duration. E.g., 86400 (seconds) or P1D (ISO 8601) each represent a daily interval.
+
+OPTIONAL fields in this section include:
+
+* **source**: The type of entity generating the geofeed information. Values include `ISP`, `CDN`, `geo_provider`, `registry`.
+* **applicability_statement**: A text field describing how the data is intended to be used.
+
+## Body section
 The JSON format for geolocation feeds builds upon the fields
 specified in RFC 8805: IP prefix, alpha2code, region, city.
 
@@ -124,8 +140,8 @@ A JSON geofeed MUST be an array of JSON objects.
 Each object MUST contain the following keys:
 
 * **ip_prefix**: same semantics as defined in {{RFC8805}}
-*  **alpha2code**: same semantics as defined in {{RFC8805}}
-*  **region**: same semantics as defined in {{RFC8805}}
+* **alpha2code**: same semantics as defined in {{RFC8805}}
+* **region**: same semantics as defined in {{RFC8805}}
 * **city**: same semantics as defined in {{RFC8805}}
 
 In addition, each object MUST contain:
