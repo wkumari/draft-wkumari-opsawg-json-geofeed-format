@@ -219,8 +219,10 @@ In particular, the authors would like to thank the following individuals for
 their contributions to the discussions that led to the development of this
 document: Nimrod Levy, Jari Arkko, Brian Trammell, Erik Kline, Erik Nygren,
 Geoff Huston, Jari Arkko, Jason Livingood, Joe Abley, Joe Clarke, Joel Jaeggli,
-Jana Iyengar, Lee Howard, Robert Kisteleki, Tommy Pauly,
-```
+Jana Iyengar, Lee Howard, Robert Kisteleki, Tommy Pauly.
+
+The authors would especially like to thank Tony Tauber for submitting useful
+pull requests.
 
 # Appendix A: Example Conversion Script
 {:numbered="false"}
