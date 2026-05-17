@@ -325,7 +325,7 @@ Acknowledgments
    the development of this document: Nimrod Levy, Jari Arkko, Brian
    Trammell, Erik Kline, Erik Nygren, Geoff Huston, Jari Arkko, Jason
    Livingood, Joe Abley, Joe Clarke, Joel Jaeggli, Jana Iyengar, Lee
-   Howard, Robert Kisteleki, Tommy Pauly.
+   Howard, Robert Kisteleki, Tommy Pauly and Zoltan Szamonek.
 
    The authors would especially like to thank Tony Tauber for submitting
    useful pull requests.
