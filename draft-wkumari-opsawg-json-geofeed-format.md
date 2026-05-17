@@ -58,7 +58,10 @@ informative:
 
 --- abstract
 
-This document defines a JavaScript Object Notation (JSON) format for self-published IP geolocation feeds. It updates RFC 8805 by transitioning from the current comma-separated values (CSV) format to a more expressive JSON format, addressing the need for operational extensibility.
+This document defines a JavaScript Object Notation (JSON) format for
+self-published IP geolocation feeds. It updates RFC 8805 by transitioning from
+the current comma-separated values (CSV) format to a more expressive JSON
+format, addressing the need for operational extensibility.
 
 
 --- middle
@@ -76,13 +79,14 @@ Furthermore, {{IAB-IP-GEO}} identified several critical gaps in the existing
 geofeed ecosystem, including:
 
 * The CSV format cannot adequately express varying levels of confidence in a
-location mapping ({{IAB-IP-GEO}}, Section 4.2), nor can it map a prefix
-to multiple locations ({{IAB-IP-GEO}}, Section 5.2) for example if the prefix is used for Anycast.
+location mapping ({{IAB-IP-GEO}}, Section 4.2), nor can it map a prefix to
+multiple locations ({{IAB-IP-GEO}}, Section 5.2) for example if the prefix is
+used for Anycast.
 
 * The current format lacks the ontology to clarify whether the geolocation
 mapping refers to the physical location of the user, the location of network
-infrastructure, a network egress point, or a regulatory jurisdiction ({{IAB-IP-GEO}},
-Section 3.3).
+infrastructure, a network egress point, or a regulatory jurisdiction
+({{IAB-IP-GEO}}, Section 3.3).
 
 Note that {{IAB-IP-GEO}} also identified other, more architectural issues,
 including that physical location does not necessarily correspond to network
@@ -95,9 +99,9 @@ and should be addressed through other mechanisms. This document simply tries to
 improve the data format to better support the ecosystem as it currently exists,
 while providing a framework for future extensions.
 
-Readers are strongly encouraged to read {{IAB-IP-GEO}}, the accompanying papers from the
-IAB Workshop on IP Address Geolocation for a deeper understanding of these
-architectural issues and the broader context of geolocation in the modern
+Readers are strongly encouraged to read {{IAB-IP-GEO}}, the accompanying papers
+from the IAB Workshop on IP Address Geolocation for a deeper understanding of
+these architectural issues and the broader context of geolocation in the modern
 internet. {{KLINE-GEO}} and {{SZAMONEK-GEO}} are particularly recommended to
 understand the architecture, use-case and privacy considerations in the
 original design.
@@ -115,25 +119,34 @@ new fields to address some of the gaps identified in {{IAB-IP-GEO}}.
 
 ## Metadata section
 
-A compliant geofeed MUST include a new section comprised of a JSON object including certain fields which improve the operational usefulness of the information within.
+A compliant geofeed MUST include a new section comprised of a JSON object
+including certain fields which improve the operational usefulness of the
+information within.
 
 REQUIRED fields in this section include:
 
-* **last_updated**: The time and date the feed was last generated, formatted as an ISO 8601 date-time.
-* **contact**: An email addresss or URL (e.g., for a web form) for outreach about the geofeed for operational or other issues.
-* **update_frequency**: The time, expressed either in a number of seconds or as an ISO 8601 duration. E.g., 86400 (seconds) or P1D (ISO 8601) each represent a daily interval.
+* **last_updated**: The time and date the feed was last generated, formatted as
+  an ISO 8601 date-time.
+* **contact**: An email addresss or URL (e.g., for a web form) for outreach
+  about the geofeed for operational or other issues.
+* **update_frequency**: The time, expressed either in a number of seconds or as
+  an ISO 8601 duration. E.g., 86400 (seconds) or P1D (ISO 8601) each represent
+  a daily interval.
 
 OPTIONAL fields in this section include:
 
-* **source**: The type of entity generating the geofeed information. Values include `ISP`, `CDN`, `geo_provider`, `registry`.
-* **applicability_statement**: A text field describing how the data is intended to be used.
+* **source**: The type of entity generating the geofeed information. Values
+  include `ISP`, `CDN`, `geo_provider`, `registry`.
+* **applicability_statement**: A text field describing how the data is intended
+  to be used.
 
 ## Body section
-The JSON format for geolocation feeds builds upon the fields
-specified in RFC 8805: IP prefix, alpha2code, region, city.
+The JSON format for geolocation feeds builds upon the fields specified in RFC
+8805: IP prefix, alpha2code, region, city.
 
-Note that, as {{RFC8805}} deprecated the use of the postal code field ({{RFC8805}}, Section 2.1.1.5 - "Postal Code"), the JSON
-format does not support it.
+Note that, as {{RFC8805}} deprecated the use of the postal code field
+({{RFC8805}}, Section 2.1.1.5 - "Postal Code"), the JSON format does not
+support it.
 
 A JSON geofeed MUST be an array of JSON objects.
 
@@ -146,16 +159,20 @@ Each object MUST contain the following keys:
 
 In addition, each object MUST contain:
 
- * **last_updated**: A string indicating the timestamp of the last update to that record, formatted as an ISO 8601 date-time. This field is critical for consumers to assess the freshness of the data, given the dynamic nature of IP address allocations and network changes.
+ * **last_updated**: A string indicating the timestamp of the last update to
+   that record, formatted as an ISO 8601 date-time. This field is critical for
+   consumers to assess the freshness of the data, given the dynamic nature of
+   IP address allocations and network changes.
 
 Objects MAY contain the following optional keys:
 
 * **location_type** (optional): A string indicating the nature of the location.
-*  Valid
-  values include `infrastructure`, `network_egress`, `organization` and `jurisdiction`.
+*  Valid values include `infrastructure`, `network_egress`, `organization` and
+  `jurisdiction`.
 
-* **confidence** (optional): A string expressing the certainty level of
-  the mapping ({{IAB-IP-GEO}}, Section 5.2). Valid values include `high`, `medium`, and `low`.
+* **confidence** (optional): A string expressing the certainty level of the
+  mapping ({{IAB-IP-GEO}}, Section 5.2). Valid values include `high`, `medium`,
+  and `low`.
 
 
 Example JSON Geofeed Entry:
@@ -215,7 +232,11 @@ mechanism to provide "private" extensions.}
 As noted in RFC 8805, self-publication of location data opens no new attack
 vectors, but consumers must validate inputs from potentially hostile sources.
 
-The JSON format allows for greater specificity, which increases the necessity for publishers to verify they have operational authority over the advertised prefixes and to ensure the accuracy of the geolocation data. Consumers should also be aware of the potential for stale data and consider the `last_updated` field when making decisions based on geofeed information.
+The JSON format allows for greater specificity, which increases the necessity
+for publishers to verify they have operational authority over the advertised
+prefixes and to ensure the accuracy of the geolocation data. Consumers should
+also be aware of the potential for stale data and consider the `last_updated`
+field when making decisions based on geofeed information.
 
 # IANA Considerations
 
@@ -235,7 +256,7 @@ In particular, the authors would like to thank the following individuals for
 their contributions to the discussions that led to the development of this
 document: Nimrod Levy, Jari Arkko, Brian Trammell, Erik Kline, Erik Nygren,
 Geoff Huston, Jari Arkko, Jason Livingood, Joe Abley, Joe Clarke, Joel Jaeggli,
-Jana Iyengar, Lee Howard, Robert Kisteleki, Tommy Pauly.
+Jana Iyengar, Lee Howard, Robert Kisteleki, Tommy Pauly and Zoltan Szamonek.
 
 The authors would especially like to thank Tony Tauber for submitting useful
 pull requests.
@@ -243,9 +264,13 @@ pull requests.
 # Appendix A: Example Conversion Script
 {:numbered="false"}
 
-The following Python program (convert.py) demonstrates how to convert an RFC 8805 format CSV geofeed into the JSON format defined in this document. This script reads from standard input and outputs the JSON to standard output.
+The following Python program (convert.py) demonstrates how to convert an RFC
+8805 format CSV geofeed into the JSON format defined in this document. This
+script reads from standard input and outputs the JSON to standard output.
 
-Note that this is a simple example script and does not include error handling, validation, or support for all potential fields. It is intended for illustrative purposes only.
+Note that this is a simple example script and does not include error handling,
+validation, or support for all potential fields. It is intended for
+illustrative purposes only.
 
 --- CODE BEGINS ---
 
@@ -255,7 +280,9 @@ Note that this is a simple example script and does not include error handling, v
 
 --- CODE ENDS ---
 
-The following Python program (test_convert.py) includes unit tests for the conversion script, demonstrating how to test the conversion of CSV input into the expected JSON output.
+The following Python program (test_convert.py) includes unit tests for the
+conversion script, demonstrating how to test the conversion of CSV input into
+the expected JSON output.
 
 --- CODE BEGINS ---
 
