@@ -4,9 +4,9 @@
 
 Operations and Management Area Working Group                   W. Kumari
 Internet-Draft                                                Google LLC
-Updates: RFC8805 (if approved)                               12 May 2026
+Updates: RFC8805 (if approved)                               17 May 2026
 Intended status: Informational                                          
-Expires: 13 November 2026
+Expires: 18 November 2026
 
 
          A JSON Format for Self-Published IP Geolocation Feeds
@@ -54,7 +54,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 13 November 2026.
+   This Internet-Draft will expire on 18 November 2026.
 
 Copyright Notice
 
@@ -325,7 +325,10 @@ Acknowledgments
    the development of this document: Nimrod Levy, Jari Arkko, Brian
    Trammell, Erik Kline, Erik Nygren, Geoff Huston, Jari Arkko, Jason
    Livingood, Joe Abley, Joe Clarke, Joel Jaeggli, Jana Iyengar, Lee
-   Howard, Robert Kisteleki, Tommy Pauly, ```
+   Howard, Robert Kisteleki, Tommy Pauly.
+
+   The authors would especially like to thank Tony Tauber for submitting
+   useful pull requests.
 
 Appendix A: Example Conversion Script
 
