@@ -70,7 +70,7 @@ format, addressing the need for operational extensibility.
 
 {{RFC8805}} Section 2.1 defines a CSV-based format for network operators to
 publish a mapping of IP address prefixes to simplified geolocation information.
-While widely deployed, the authors of {{RFC8805}} acknowledged in Section 7that
+While widely deployed, the authors of {{RFC8805}} acknowledged in Section 7 that
 the CSV format has "extremely limited extensibility" and that future work
 should involve the development of a more expressive format, specifically
 suggesting JSON (see{{RFC8805}}, Section 7. "Planned Future Work").
@@ -127,7 +127,7 @@ REQUIRED fields in this section include:
 
 * **last_updated**: The time and date the feed was last generated, formatted as
   an ISO 8601 date-time.
-* **contact**: An email addresss or URL (e.g., for a web form) for outreach
+* **contact**: An email address or URL (e.g., for a web form) for outreach
   about the geofeed for operational or other issues.
 * **update_frequency**: The time, expressed either in a number of seconds or as
   an ISO 8601 duration. E.g., 86400 (seconds) or P1D (ISO 8601) each represent
